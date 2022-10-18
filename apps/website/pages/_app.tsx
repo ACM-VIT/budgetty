@@ -1,10 +1,12 @@
-import { AppProps } from 'next/app';
-import Head from 'next/head';
-import { MantineProvider } from '@mantine/core';
+import { AppProps } from "next/app";
+import Head from "next/head";
+import { MantineProvider } from "@mantine/core";
+import { SessionProvider } from "next-auth/react";
 
-export default function App(props: AppProps) {
-  const { Component, pageProps } = props;
-
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}) {
   return (
     <>
       <Head>
@@ -15,16 +17,18 @@ export default function App(props: AppProps) {
         />
       </Head>
 
-      <MantineProvider
-        withGlobalStyles
-        withNormalizeCSS
-        theme={{
-          /** Put your mantine theme override here */
-          colorScheme: 'dark',
-        }}
-      >
-        <Component {...pageProps} />
-      </MantineProvider>
+      <SessionProvider session={session}>
+        <MantineProvider
+          withGlobalStyles
+          withNormalizeCSS
+          theme={{
+            /** Put your mantine theme override here */
+            colorScheme: "dark",
+          }}
+        >
+          <Component {...pageProps} />
+        </MantineProvider>
+      </SessionProvider>
     </>
   );
 }
