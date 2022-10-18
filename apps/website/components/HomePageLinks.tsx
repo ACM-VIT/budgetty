@@ -1,7 +1,8 @@
-import React from 'react';
-import { TbLogin, TbReportMoney, TbCurrencyDollar } from 'react-icons/tb';
-import { ThemeIcon, UnstyledButton, Group, Text } from '@mantine/core';
-import Link from 'next/link';
+import React from "react";
+import { TbLogin, TbReportMoney, TbCurrencyDollar } from "react-icons/tb";
+import { ThemeIcon, UnstyledButton, Group, Text } from "@mantine/core";
+import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 interface MainLinkProps {
   icon: React.ReactNode;
@@ -15,16 +16,16 @@ function MainLink({ icon, color, label, href }: MainLinkProps) {
     <Link href={href}>
       <UnstyledButton
         sx={(theme) => ({
-          display: 'block',
-          width: '100%',
+          display: "block",
+          width: "100%",
           padding: theme.spacing.xs,
           borderRadius: theme.radius.sm,
           color:
-            theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.black,
+            theme.colorScheme === "dark" ? theme.colors.dark[0] : theme.black,
 
-          '&:hover': {
+          "&:hover": {
             backgroundColor:
-              theme.colorScheme === 'dark'
+              theme.colorScheme === "dark"
                 ? theme.colors.dark[6]
                 : theme.colors.gray[0],
           },
@@ -43,22 +44,53 @@ function MainLink({ icon, color, label, href }: MainLinkProps) {
 }
 
 const data = [
-  { icon: <TbLogin size={16} />, color: 'blue', label: 'Login', href: '/' },
+  {
+    icon: <TbLogin size={16} />,
+    color: "blue",
+    label: "Login",
+    href: "/login",
+  },
   {
     icon: <TbReportMoney size={16} />,
-    color: 'teal',
-    label: 'Expense List',
-    href: '/report',
+    color: "teal",
+    label: "Expense List",
+    href: "/report",
   },
   {
     icon: <TbCurrencyDollar size={16} />,
-    color: 'violet',
-    label: 'Add Expenses',
-    href: '/expenses',
+    color: "violet",
+    label: "Add Expenses",
+    href: "/expenses",
   },
 ];
 
-export function MainLinks({ loggedIn }: { loggedIn: boolean }) {
-  const links = data.map((link) => <MainLink {...link} key={link.label} />);
-  return <div>{links}</div>;
+export function MainLinks() {
+  const { data: session } = useSession();
+  if (session) {
+    return (
+      <>
+        <MainLink
+          icon={data[1].icon}
+          color={data[1].color}
+          label={data[1].label}
+          href={data[1].href}
+        />
+        <MainLink
+          icon={data[2].icon}
+          color={data[2].color}
+          label={data[2].label}
+          href={data[2].href}
+        />
+      </>
+    );
+  } else {
+    return (
+      <MainLink
+        icon={data[0].icon}
+        color={data[0].color}
+        label={data[0].label}
+        href={data[0].href}
+      />
+    );
+  }
 }

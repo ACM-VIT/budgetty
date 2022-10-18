@@ -63,7 +63,15 @@ The overview starts here. Random text about the project, motive, how, what, why 
 
 ### Usage
 
-<!-- How To, Features, Installation etc. as subheadings in this section. example-->
+To run this app, you will need the following environment variables defined in a `.env` file at the root of the application. Copy the given `.env.example` into another file called `.env`, and fill in the values as follows
+
+1. `DATABASE_URL`: This is the Postgres connection string to your Postgres database that the application will use. This database can either be running somewhere on the cloud, or on your own local system using something like [Docker](https://docker.com), or just plain Postgres on your system.
+
+2. `The GitHub credentials`: For this, you will have to go to GitHub > Settings > Developer Settings > OAuth Apps, and click on "New OAuth App". This will prompt you enter the following details. 
+
+![OAuth App Details](https://i.imgur.com/EjwRN9E.png)
+
+Once you click on "Register Application", copy the given Client ID and paste it into the `.env` file. Then, generate a new client secret, and copy the value and paste it into the `.env` file and voila, you're done :)
 
 ## BudgetTracker
 
