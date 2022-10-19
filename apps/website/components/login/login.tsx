@@ -28,8 +28,8 @@ export function Login() {
     return (
       <Button
         leftIcon={<TbBrandGithub />}
-        onClick={() => {
-          signIn("github");
+        onClick={async () => {
+          await signIn("github");
         }}
       >
         Login with GitHub

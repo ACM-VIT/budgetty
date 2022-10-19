@@ -1,14 +1,16 @@
-import styles from './transactions.module.css';
+import styles from "./transactions.module.css";
+import { useSession } from "next-auth/react";
 
-/* eslint-disable-next-line */
-export interface TransactionsProps {}
-
-export function Transactions(props: TransactionsProps) {
-  return (
-    <div className={styles['container']}>
-      <h1>Welcome to Transactions!</h1>
-    </div>
-  );
+export function Transactions(props) {
+  const { data: session } = useSession();
+  if (session) {
+    return (
+      <div className={styles.container}>
+        <h1>Welcome, {session.user.name}</h1>
+      </div>
+    );
+  }
+  return <></>;
 }
 
 export default Transactions;
