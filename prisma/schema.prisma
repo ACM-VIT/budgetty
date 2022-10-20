@@ -25,7 +25,7 @@ model Transaction {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   amount    Int
-  type      String
+  description String
   expense   Boolean
   user      User     @relation(fields: [userId], references: [id])
   userId    Int

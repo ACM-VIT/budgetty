@@ -9,7 +9,7 @@ export class TransactionsController {
     transaction: {
       amount: number;
       email: string;
-      type: string;
+      description: string;
       expense: boolean;
     }
   ) {
@@ -22,7 +22,7 @@ export class TransactionsController {
         user: {
           connect: { id: user.id },
         },
-        type: transaction.type,
+        description: transaction.description,
         expense: transaction.expense,
       },
     });

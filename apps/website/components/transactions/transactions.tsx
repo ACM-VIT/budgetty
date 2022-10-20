@@ -11,6 +11,7 @@ import {
 import { z } from "zod";
 import { get, post } from "../../utils/api";
 import { useForm, zodResolver } from "@mantine/form";
+import { showNotification } from "@mantine/notifications";
 
 const schema = z.object({
   amount: z.number().positive().int(),
@@ -21,17 +22,6 @@ const schema = z.object({
 export function Transactions(props) {
   const [transactions, setTransactions] = useState([]);
   const { data: session } = useSession();
-  useEffect(() => {
-    async function fetchTransactions() {
-      const currentSession = await getSession();
-      const transactionList: [] = await get("/api/transactions", {
-        email: currentSession.user.email,
-      });
-      setTransactions(transactionList);
-    }
-
-    fetchTransactions();
-  }, []);
   const form = useForm({
     initialValues: {
       amount: 0,
@@ -43,8 +33,20 @@ export function Transactions(props) {
   if (session) {
     return (
       <>
-        <Box mx="auto">
-          <form onSubmit={form.onSubmit((values) => console.log(values))}>
+        <Box style={{ width: "80%" }}>
+          <form
+            onSubmit={form.onSubmit(async (values) => {
+              const response = await post("/api/transactions", {
+                email: session.user.email,
+                ...values,
+              });
+              showNotification({
+                color: "green",
+                title: "Success",
+                message: "New transaction created",
+              });
+            })}
+          >
             <NumberInput
               withAsterisk
               label="Amount"
@@ -58,7 +60,11 @@ export function Transactions(props) {
               mt="sm"
               {...form.getInputProps("description")}
             />
-            <Checkbox mt="sm" label="Is this an expense?" />
+            <Checkbox
+              mt="sm"
+              label="Is this an expense?"
+              {...form.getInputProps("expense", { type: "checkbox" })}
+            />
 
             <Group position="center" mt="xl">
               <Button type="submit">Submit</Button>

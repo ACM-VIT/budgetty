@@ -1589,14 +1589,14 @@
   "resolved" "https://registry.npmjs.org/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz"
   "version" "2.0.4"
 
-"@mantine/core@^5.5.4", "@mantine/core@5.5.4":
-  "integrity" "sha512-N0k8vBxuJOAwfchxd8gr1HXjsSw1HumQR9WR2OVCHmRR84ur2VniRB8iN4pCYSvnIXjUqpN1rzfnmAYTTogS+A=="
-  "resolved" "https://registry.npmjs.org/@mantine/core/-/core-5.5.4.tgz"
-  "version" "5.5.4"
+"@mantine/core@^5.5.4", "@mantine/core@5.6.0":
+  "integrity" "sha512-sctx5GcfACKJ5Tj0pp2+GbBxQGxIT4NSxHiYSuSJF1TxxWF9r8o/fOk6ixpw1zke7gDfR3LRAHz67EnjIg8ESg=="
+  "resolved" "https://registry.npmjs.org/@mantine/core/-/core-5.6.0.tgz"
+  "version" "5.6.0"
   dependencies:
     "@floating-ui/react-dom-interactions" "^0.10.1"
-    "@mantine/styles" "5.5.4"
-    "@mantine/utils" "5.5.4"
+    "@mantine/styles" "5.6.0"
+    "@mantine/utils" "5.6.0"
     "@radix-ui/react-scroll-area" "1.0.0"
     "react-textarea-autosize" "8.3.4"
 
@@ -1608,10 +1608,10 @@
     "fast-deep-equal" "^3.1.3"
     "klona" "^2.0.5"
 
-"@mantine/hooks@^5.5.4", "@mantine/hooks@5.5.4":
-  "integrity" "sha512-4lPIcZgoMkq+GCILN8CDTVxYzsE/Gfi6ICjHhPZU1Ufmw0mftpjTQhLx3+TFMtBlqnamgBia2ZS1o2BpvTLazA=="
-  "resolved" "https://registry.npmjs.org/@mantine/hooks/-/hooks-5.5.4.tgz"
-  "version" "5.5.4"
+"@mantine/hooks@^5.5.4", "@mantine/hooks@5.6.0":
+  "integrity" "sha512-If1+yJKpMzzZuiSn6orX+ZaM2KLKeupE4GnI76tAVWRwDhsd/pqTXY5GbrJXSd59BgggXmTm5pifcJVOGyhHvA=="
+  "resolved" "https://registry.npmjs.org/@mantine/hooks/-/hooks-5.6.0.tgz"
+  "version" "5.6.0"
 
 "@mantine/next@^5.5.4":
   "integrity" "sha512-7vVZEyW4rN7O1ytVT0mW7jnsd7GkcFwphdvXJq6sa8pzWvOUpIo5uG2zsIzoxxv27mjhfF1bxIolL0vAdwgfwA=="
@@ -1621,12 +1621,12 @@
     "@mantine/ssr" "5.5.4"
     "@mantine/styles" "5.5.4"
 
-"@mantine/notifications@^5.5.4":
-  "integrity" "sha512-icX+uhGE+5DmZFPfcxLdjetyJhDzy1HtDT+F4Z898EJoFasHZZrd9dcOpc9wxESe73aHR1UsiEsJQz3wllKqUg=="
-  "resolved" "https://registry.npmjs.org/@mantine/notifications/-/notifications-5.5.4.tgz"
-  "version" "5.5.4"
+"@mantine/notifications@^5.6.0":
+  "integrity" "sha512-nTvtHPYDCa3b6I3/09F3KjGtNI+yfEglDKs5pe9NcjExMYQx5felEYJaEUqD/Xc+V/K/tNOmblet5hWGOHO+ag=="
+  "resolved" "https://registry.npmjs.org/@mantine/notifications/-/notifications-5.6.0.tgz"
+  "version" "5.6.0"
   dependencies:
-    "@mantine/utils" "5.5.4"
+    "@mantine/utils" "5.6.0"
     "react-transition-group" "4.4.2"
 
 "@mantine/ssr@5.5.4":
@@ -1645,10 +1645,18 @@
     "clsx" "1.1.1"
     "csstype" "3.0.9"
 
-"@mantine/utils@5.5.4":
-  "integrity" "sha512-EO0iD99wfvKC09WHpCXrqb5ewTmuYf4GeNR3xOtecNaXNbFUVxmlV6wwhsJ61YScy+7bM1lplwNvkGz5CF0v7Q=="
-  "resolved" "https://registry.npmjs.org/@mantine/utils/-/utils-5.5.4.tgz"
-  "version" "5.5.4"
+"@mantine/styles@5.6.0":
+  "integrity" "sha512-dVhk9EFSk2XGgemT595iyIbLo4HBDmzkJtpN1OqxPdg+dHGBbx8BogA+JsheXgklhUpPGnrLLFzOYY9aRjWyaA=="
+  "resolved" "https://registry.npmjs.org/@mantine/styles/-/styles-5.6.0.tgz"
+  "version" "5.6.0"
+  dependencies:
+    "clsx" "1.1.1"
+    "csstype" "3.0.9"
+
+"@mantine/utils@5.6.0":
+  "integrity" "sha512-HFe/B/Z6R9j7n0pcumaAl0yYeM+EbRPlZht0t5CP79nZcgz0ANUsnp3f3SGJA/Bc2spO0hd1Cr0daBb1liBMRg=="
+  "resolved" "https://registry.npmjs.org/@mantine/utils/-/utils-5.6.0.tgz"
+  "version" "5.6.0"
 
 "@nestjs/common@^9.0.0":
   "integrity" "sha512-hmGTZ8ShKFDqqlU02uU8e/8PNE4bnES4pcFa6s/T1pLDYWjyf/75Klunro1W4aQPHcxnnohBmB27WxMqFTPEfw=="
