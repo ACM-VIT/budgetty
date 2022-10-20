@@ -51,16 +51,16 @@ const data = [
     href: "/login",
   },
   {
-    icon: <TbReportMoney size={16} />,
-    color: "teal",
-    label: "Expense List",
-    href: "/report",
-  },
-  {
     icon: <TbCurrencyDollar size={16} />,
     color: "violet",
     label: "Add Expenses",
-    href: "/expenses",
+    href: "/transactions",
+  },
+  {
+    icon: <TbReportMoney size={16} />,
+    color: "teal",
+    label: "Expense List",
+    href: "/reports",
   },
 ];
 

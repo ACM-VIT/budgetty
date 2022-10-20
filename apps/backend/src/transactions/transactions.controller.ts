@@ -5,7 +5,13 @@ import { prisma } from "../assets/prisma";
 export class TransactionsController {
   @Post()
   async create(
-    @Body() transaction: { amount: number; email: string; type: string }
+    @Body()
+    transaction: {
+      amount: number;
+      email: string;
+      description: string;
+      expense: boolean;
+    }
   ) {
     const user = await prisma.user.findUnique({
       where: { email: transaction.email },
@@ -16,7 +22,16 @@ export class TransactionsController {
         user: {
           connect: { id: user.id },
         },
-        type: transaction.type,
+        description: transaction.description,
+        expense: transaction.expense,
+      },
+    });
+    // Update the user's balance
+    await prisma.user.update({
+      where: { id: user.id },
+      data: {
+        balance:
+          user.balance + (transaction.expense ? -1 : 1) * transaction.amount,
       },
     });
     return newTransaction;

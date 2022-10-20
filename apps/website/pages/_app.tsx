@@ -2,6 +2,7 @@ import { AppProps } from "next/app";
 import Head from "next/head";
 import { MantineProvider } from "@mantine/core";
 import { SessionProvider } from "next-auth/react";
+import { NotificationsProvider } from "@mantine/notifications";
 
 export default function App({
   Component,
@@ -26,7 +27,9 @@ export default function App({
             colorScheme: "dark",
           }}
         >
-          <Component {...pageProps} />
+          <NotificationsProvider>
+            <Component {...pageProps} />
+          </NotificationsProvider>
         </MantineProvider>
       </SessionProvider>
     </>
