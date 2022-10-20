@@ -1,16 +1,10 @@
 import { TbBrandGithub, TbLogout } from "react-icons/tb";
 import { Button } from "@mantine/core";
 import { useSession, signIn, signOut } from "next-auth/react";
-import axios from "axios";
+import { post } from "../../utils/api";
 
 const postLogin = (email: string) => {
-  axios
-    .post("http://localhost:3333/api/login", {
-      email: email,
-    })
-    .then((response) => {
-      console.log(response);
-    });
+  post("/api/login", { email: email });
 };
 
 export function Login() {
@@ -19,18 +13,13 @@ export function Login() {
     return (
       <>
         <p>Signed in as {session.user.email}</p> <br />
-        <Button leftIcon={<TbLogout />} onClick={() => signOut()}>
-          Sign out
-        </Button>
       </>
     );
   } else {
     return (
       <Button
         leftIcon={<TbBrandGithub />}
-        onClick={async () => {
-          await signIn("github");
-        }}
+        onClick={() => signIn("github", { callbackUrl: "/" })}
       >
         Login with GitHub
       </Button>
